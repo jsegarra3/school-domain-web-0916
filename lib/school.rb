@@ -21,9 +21,7 @@ class School
   end
 
   def sort
-    @roster.keys.sort!
-    @roster.values.map! {|student_list| student_list.sort!}
-    @roster
+    @roster.each_with_object({}) {|(year,student_list),obj| obj[year]=student_list.sort}
   end
-  # binding.pry
+
 end
